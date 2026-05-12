@@ -1,10 +1,11 @@
-import 'dotenv/config';
+import "dotenv/config";
 import esbuild from "esbuild";
 
 await esbuild.build({
   bundle: true,
   define: {
-    "process.env.SHEET_ID": process.env.SHEET_ID ?? "",
+    // NOTE: `JSON.stringify`は必要 ※利用しないと文字列の前後にダブルコートがつかない
+    "process.env.SHEET_ID": JSON.stringify(process.env.SHEET_ID ?? ""),
   },
   entryPoints: ["src/index.ts"],
   format: "cjs",
@@ -12,4 +13,6 @@ await esbuild.build({
   platform: "browser",
   target: "es2019",
   treeShaking: false,
+  minifySyntax: true,
+  minifyWhitespace: true,
 });
