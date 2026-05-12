@@ -2,8 +2,6 @@
 
 ## TODO
 
-- linter
-- 環境変数
 - htmlもdistに出力する
 
 ## コマンドメモ
