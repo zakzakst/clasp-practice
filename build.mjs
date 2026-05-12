@@ -1,9 +1,11 @@
 import esbuild from "esbuild";
 
 await esbuild.build({
-  entryPoints: ["src/index.ts"],
   bundle: true,
+  entryPoints: ["src/index.ts"],
+  format: "cjs",
   outfile: "dist/index.js",
   platform: "browser",
   target: "es2019",
+  treeShaking: false,
 });
