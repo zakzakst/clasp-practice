@@ -1,5 +1,5 @@
-import { formatName } from "@/utils/format";
+import { formatName_ } from "@/utils/format";
 
-export const getUserMessage = (name: string): string => {
-  return formatName(name);
+export const getUserMessage_ = (name: string): string => {
+  return formatName_(name);
 };
