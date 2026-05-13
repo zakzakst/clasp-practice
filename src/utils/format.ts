@@ -1,3 +1,3 @@
-export const formatName = (name: string): string => {
+export const formatName_ = (name: string): string => {
   return `こんにちは ${name} さん`;
 };
