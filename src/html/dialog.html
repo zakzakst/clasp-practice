@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="theme-light">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
+  </head>
+
+  <body>
+    <form id="form">
+      <div class="field">
+        <label class="label">名前</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="山田太郎" name="name" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">年齢</label>
+        <div class="control">
+          <input class="input" type="number" name="age" />
+        </div>
+      </div>
+
+      <button type="submit" class="button is-primary">登録</button>
+    </form>
+
+    <script>
+      const form = document.getElementById("form");
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const user = {
+          name: formData.get("name"),
+          age: formData.get("age"),
+        };
+        google.script.run.saveUser(user);
+        google.script.host.close();
+      });
+    </script>
+  </body>
+</html>

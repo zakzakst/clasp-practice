@@ -2,7 +2,9 @@
 
 ## TODO
 
-- htmlもdistに出力する
+- もうちょっとbuild工夫したい
+  - jsファイル複数
+  - htmlファイルはコピーでなくejsとかxhtmlとか使う
 
 ## コマンドメモ
 

@@ -11,11 +11,27 @@ const hello = (): void => {
   }
 };
 
-const onOpen = () => {
+const showDialog = (): void => {
+  const html = HtmlService.createHtmlOutputFromFile("dialog")
+    .setWidth(400)
+    .setHeight(300);
+  SpreadsheetApp.getUi().showModalDialog(html, "ダイアログ");
+};
+
+const saveUser = (user: { name: string; age: number }): void => {
+  const ui = SpreadsheetApp.getUi();
+  ui.alert("完了しました", `${user.name}さん${user.age}歳`, ui.ButtonSet.OK);
+};
+
+const onOpen = (): void => {
   menuInit_([
     {
       label: "Hello",
       name: "hello",
+    },
+    {
+      label: "Dialog",
+      name: "showDialog",
     },
   ]);
 };

@@ -1,5 +1,7 @@
 import "dotenv/config";
 import esbuild from "esbuild";
+import fs from "fs/promises";
+import path from "path";
 
 await esbuild.build({
   bundle: true,
@@ -13,6 +15,13 @@ await esbuild.build({
   platform: "browser",
   target: "es2019",
   treeShaking: false,
-  minifySyntax: true,
+  // minifySyntax: true,
   minifyWhitespace: true,
 });
+
+try {
+  await fs.cp("src/html", "dist", { recursive: true });
+  console.log("HTML files copied successfully to dist/html");
+} catch (error) {
+  console.error("Error copying HTML files:", error);
+}
